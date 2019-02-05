@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "fable-patchinko",
+  "scripts": {
+    "start": "npx fable-splitter src/ -w --run",
+    "build": "npx fable-splitter src/ -w --run -o out/",
+    "restore": "dotnet restore src/App.fsproj",
+    "paket:mono": "mono .paket/paket.exe install",
+    "paket": ".paket/paket.exe install"
+  },
+  "dependencies": {
+    "seview": "^0.12.1"
+  },
+  "devDependencies": {
+    "mithril": "^1.1.6",
+    "@babel/core": "^7.2.2",
+    "fable-compiler": "^2.1.11",
+    "fable-loader": "^2.1.2",
+    "fable-splitter": "^2.1.2"
+  }
+}
