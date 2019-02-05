@@ -24,6 +24,10 @@ type [<AllowNullLiteral>] transformFn =
 type [<AllowNullLiteral>] sv =
     [<Emit "$0($1...)">] abstract Invoke: transform: transformFn * options: obj -> h
 
+type ChildTree = 
+    | Child 
+    | Composite of ChildTree list
+
 type Child =
     string
 

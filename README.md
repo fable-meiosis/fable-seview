@@ -24,6 +24,14 @@ Each node has the following structure:
 }
 ```
 
+Perhaps try:
+
+```fsharp
+type ChildTree =
+    | Child
+    | Composite of ChildTree list
+```
+
 ### Fable usage
 
 TODO
