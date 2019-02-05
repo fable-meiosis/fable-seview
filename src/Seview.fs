@@ -13,7 +13,7 @@ type [<AllowNullLiteral>] IExports =
     abstract sv: transform: obj option * options: obj option -> obj option
 
 type [<AllowNullLiteral>] IExportViewLib =
-    abstract h: children: Children -> obj option
+    abstract h: children: ChildTree -> obj option
 
 type element =
     obj
@@ -25,7 +25,7 @@ type [<AllowNullLiteral>] sv =
     [<Emit "$0($1...)">] abstract Invoke: transform: transformFn * options: obj -> h
 
 type ChildTree = 
-    | Child 
+    | Child
     | Composite of ChildTree list
 
 type Child =
@@ -46,5 +46,13 @@ module Children =
     let isChildArray (v: Children) = match v with U2.Case2 _ -> true | _ -> false
     let asChildArray (v: Children) = match v with U2.Case2 o -> Some o | _ -> None
 
+// generated from ts2fable
 type [<AllowNullLiteral>] h =
     [<Emit "$0($1...)">] abstract Invoke: children: Children -> obj option
+
+// Fable helper to call into generated bound h function
+[<Emit("h([\"$1 $0\"])")>]
+let h1 (txt: string option) (opts: string option) = jsNative
+
+[<Emit("h([\"$0\"])")>]
+let txt1 (txt: string) = jsNative

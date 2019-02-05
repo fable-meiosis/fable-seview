@@ -34,7 +34,16 @@ type ChildTree =
 
 ### Fable usage
 
-TODO
+We will have to add a full DSL similar to how Fable does it for [fable-react](https://github.com/fable-compiler/fable-react/blob/master/src/Fable.React/Fable.React.Standard.fs#L4)
+
+```fsharp
+open Seview
+
+let txt = Some "hello"
+h1 (Some "hello") None
+h1 txt None
+txt1 "hello world"
+```
 
 ## Why?
 

@@ -2,10 +2,8 @@ module SeviewMithrilApp
 
 open Seview
 
-// react
-// mithril.h ["h1"] |> ignore
+let txt = Some "hello"
+h1 (Some "hello") None
+h1 txt None
+txt1 "hello world"
 
-// react.h ["h1"; ["h2"]] |> ignore
-
-// mithril
-// preact.h [| "h1", ["h2"] |]] |> ignore
