@@ -1,8 +1,13 @@
 // ts2fable 0.6.1
-module rec Seview
+module rec Fable.Seview.Helpers
+
 open System
 open Fable.Core
 open Fable.Import.JS
+open Fable.Core.JsInterop
+
+// auto-open?
+open Fable.Seview.Props
 
 let [<Import("*","seview/react")>] react: IExportViewLib = jsNative
 let [<Import("*","seview/preact")>] preact: IExportViewLib = jsNative
@@ -50,9 +55,13 @@ module Children =
 type [<AllowNullLiteral>] h =
     [<Emit "$0($1...)">] abstract Invoke: children: Children -> obj option
 
-// Fable helper to call into generated bound h function
-[<Emit("h([\"$1 $0\"])")>]
-let h1 (txt: string option) (opts: string option) = jsNative
+type [<AllowNullLiteral>] Element =
+    interface end
 
-[<Emit("h([\"$0\"])")>]
-let txt1 (txt: string) = jsNative
+[<Emit("h([$0, $1, $2])")>]
+let createElement(comp: obj, props: obj, [<ParamList>] children: obj): Element =
+    jsNative
+
+let inline domEl (tag: string) (props: IHTMLProp seq) (children: Element seq): Element =
+    createElement(tag, keyValueList CaseRules.LowerFirst props, children)
+

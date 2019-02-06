@@ -5,9 +5,11 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="paket.references" />
-    <Compile Include="Seview.fs" />
-    <Compile Include="SeviewFlex.fs" />
-    <Compile Include="SeviewMithrilApp.fs" />
+    <Compile Include="Fable.Seview.fs" />
+    <Compile Include="Fable.Seview.Props.fs" />
+    <Compile Include="Fable.Seview.Helpers.fs" />
+    <Compile Include="Fable.Seview.Standard.fs" />
+    <Compile Include="Fable.Seview.App.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
